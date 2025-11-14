@@ -48,7 +48,7 @@ class SubCategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $slug)
     {
         //
     }
@@ -56,7 +56,7 @@ class SubCategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $slug)
     {
          $SubCategory=SubCategory::where('slug',$slug)->firstorFail();
          if($SubCategory){
@@ -70,13 +70,13 @@ class SubCategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $slug)
     {
         $validated = $request->validate([
             // validation rules
             'category_id' => 'nullable|exists:categories,id',
             'name'=>'nullable|string|max:255|min:5',
-            'slug'=>'nullable|string|max:255|min:5|unique:sub_categories,slug,'.$id,
+            'slug'=>'nullable|string|max:255|min:5|unique:sub_categories,slug,',
             'description'=>'nullable|string',
             'status'=>'boolean',
             'image'=>'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -87,9 +87,9 @@ class SubCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(string $slug)
     {
-        $SubCategory=SubCategory::findorFail($id);
+        $SubCategory=SubCategory::findorFail($slug);
         if($SubCategory){
             $SubCategory->delete();
             return response()->json(['message'=>'subcategory deleted successfully'],200);
