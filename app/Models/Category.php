@@ -13,4 +13,12 @@ class Category extends Model
         'status',
         'image'
     ];
+    protected $casts = [
+    'name'        => 'string',
+    'slug'        => 'string',
+    'description' => 'string',
+    'status'      => 'boolean', // Usually active/inactive
+    'image'       => 'string',
+];
+
 }
