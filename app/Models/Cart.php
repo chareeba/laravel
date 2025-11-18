@@ -11,4 +11,11 @@ class Cart extends Model
     'session_id', // For guest users
     'total',
 ];
+
+protected $casts = [
+    'user_id'   => 'integer',
+    'session_id'=> 'string',   // Guest session token / ID
+    'total'     => 'decimal:2' // Money value
+];
+
 }
