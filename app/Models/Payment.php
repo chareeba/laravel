@@ -12,13 +12,13 @@ class Payment extends Model
         'transaction_id',
         'amount',
         'status',
-       ];
-       protected $casts = [
-    'order_id'        => 'integer',
-    'payment_method'  => 'string',     // e.g., 'stripe', 'paypal', 'cod'
-    'transaction_id'  => 'string',
-    'amount'          => 'decimal:2',
-    'status'          => 'string',     // or boolean if it's 0/1
-];
+    ];
+    protected $casts = [
+        'order_id' => 'integer',
+        'payment_method' => 'string',     // e.g., 'stripe', 'paypal', 'cod'
+        'transaction_id' => 'string',
+        'amount' => 'decimal:2',
+        'status' => 'string',     // or boolean if it's 0/1
+    ];
 
 }
