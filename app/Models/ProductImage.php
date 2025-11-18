@@ -11,4 +11,10 @@ class ProductImage extends Model
     'image_path',
     'alt_text',
 ];
+protected $casts = [
+    'product_id' => 'integer',
+    'image_path' => 'string',
+    'alt_text'   => 'string',
+];
+
 }
